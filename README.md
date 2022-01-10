@@ -3,9 +3,13 @@
 
 ## Overview
 
+#### How To Return
+
 ### REST API
+Go to http://3.131.19.110:8080/FitnessForever/api/users
 
 ### HTML/JavaScript Front End
+Go to http://3.131.19.110:8080/FitnessForever/index.html
 
 ### Angular Front End
 

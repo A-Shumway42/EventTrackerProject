@@ -1,4 +1,4 @@
-package com.skilldistillery.recipes.entities;
+package com.skilldistillery.fitness.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -13,13 +13,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.fitness.entities.User;
 
-class UserTest {
+class WorkoutTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Workout workout;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -34,22 +33,27 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		workout = em.find(Workout.class, 6);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		workout = null;
 	}
 
 	@Test
-	void test_User_entity() {
-		assertNotNull(user);
-		assertEquals("Andrew", user.getFirstName());
-		assertEquals("Shumway", user.getLastName());
-		assertEquals(225, user.getWeight());
-		assertEquals(150, user.getHeight());
+	void test_Workout_entity() {
+		assertNotNull(workout);
+		assertEquals("Cardio & HIIT", workout.getWorkoutType());
+		assertEquals(2022, workout.getWorkoutStart().getYear());
+		assertEquals(1, workout.getWorkoutStart().getMonthValue());
+		assertEquals(8, workout.getWorkoutStart().getDayOfMonth());
+		assertEquals(2, workout.getMilesRan());
+		assertEquals("Box Jumps, Wall Balls, Sprints, Burpees", workout.getExercises());
+		assertEquals(3, workout.getSetsPerWorkout());
+		assertEquals(25, workout.getRepsPerWorkout());
+		
 	}
 
 }
