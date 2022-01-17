@@ -2,9 +2,15 @@ package com.skilldistillery.fitness;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class FitnessForeverApplication {
+public class FitnessForeverApplication extends SpringBootServletInitializer {
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(FitnessForeverApplication.class);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(FitnessForeverApplication.class, args);

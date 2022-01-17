@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fitness Forever</title>
+    <script type="text/javascript" src="js/script.js"></script>
+  </head>
+  <body>
+    <h1>Fitness Forever!</h1>
+
+    <h3>A place to track your Workouts!</h3>
+    <form id="addWorkoutForm">
+      <label for="workoutType">Workout Type: </label>
+      <input type="text" id="workoutType" name="workoutType" /><br />
+      <label for="workoutTimeStart">Time Started: </label>
+      <input
+        type="datetime-local"
+        id="workoutTimeStart"
+        name="workoutTimeStart"
+      /><br />
+      <label for="workoutTimeEnd">Time Ended: </label>
+      <input
+        type="datetime-local"
+        id="workoutTimeEnd"
+        name="workoutTimeEnd"
+      /><br />
+      <label for="milesRan">Miles Ran: </label>
+      <input type="number" id="milesRan" name="milesRan" /><br />
+      <label for="exercises">Exercises: </label>
+      <input type="text" id="exercises" name="exercises" /><br />
+      <label for="setsPerWorkout">Sets: </label>
+      <input type="number" id="setsPerWorkout" name="setsPerWorkout" /><br />
+      <label for="repsPerWorkout">Reps: </label>
+      <input type="number" id="repsPerWorkout" name="repsPerWorkout" /><br />
+
+      <button id="addWorkout">Add Workout</button>
+    </form>
+    <div id="workoutListDiv"></div>
+
+    <div id="newWorkoutFormDiv"></div>
+  </body>
+</html>

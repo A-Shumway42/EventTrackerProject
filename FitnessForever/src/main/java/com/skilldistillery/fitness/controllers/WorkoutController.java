@@ -38,6 +38,7 @@ public class WorkoutController {
 
 	@PostMapping("workouts")
 	public Workout createWorkout(@RequestBody Workout workout, HttpServletRequest req, HttpServletResponse res) {
+		System.out.println(workout);
 		try {
 			workout = workoutSvc.addNewWorkout(workout);
 			res.setStatus(201);
