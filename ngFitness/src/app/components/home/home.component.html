@@ -1,1 +1,109 @@
-<p>home works!</p>
+<!-- <h1>{{ title }} {{ getNumTodos() }}</h1> -->
+<h1>{{title}} | Total Workouts - {{ getNumberOfWorkouts()}}</h1>
+<div>
+  <table class="table">
+    <thead style="background-color: darkgrey;">
+      <tr>
+        <th>Workout #</th>
+        <th>Workout Type</th>
+        <th>Time Start</th>
+        <th>Time End</th>
+        <th>Miles Ran</th>
+        <th>Exercises</th>
+        <th>Sets</th>
+        <th>Reps</th>
+        <th>Delete</th>
+        <th>Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let workout of workouts; index as i">
+        <td>{{workout.id}}</td>
+        <td>{{workout.workoutType}}</td>
+        <td>{{workout.workoutStart}}</td>
+        <td>{{workout.workoutEnd}}</td>
+        <td>{{workout.milesRan}}</td>
+        <td>{{workout.exercises}}</td>
+        <td>{{workout.setsPerWorkout}}</td>
+        <td>{{workout.repsPerWorkout}}</td>
+        <td><button class="btn btn-danger" name="delete" (click)="deleteWorkout(workout.id)">X</button></td>
+        <td><button class="btn btn-success" name="update" (click)="prepareUpdateWorkout(workout)">+</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <div><button *ngIf="!showCreateWorkoutForm" name="addWorkout" (click)="showWorkoutForm()">Add Workout</button></div>
+  <div *ngIf="showCreateWorkoutForm">
+    <form>
+      <label for="workoutType">Workout Type: </label>
+      <input type="text" name="workoutType" [(ngModel)]="newWorkout.workoutType"><br />
+      <label for="workoutTimeStart">Time Started: </label>
+      <input
+        type="datetime-local"
+        name="workoutTimeStart" [(ngModel)]="newWorkout.workoutStart"
+      /><br />
+      <label for="workoutTimeEnd">Time Ended: </label>
+      <input
+        type="datetime-local"
+        name="workoutTimeEnd" [(ngModel)]="newWorkout.workoutEnd"
+      /><br />
+      <label for="milesRan">Miles Ran: </label>
+      <input type="number" name="milesRan" [(ngModel)]="newWorkout.milesRan"/><br />
+      <label for="exercises">Exercises: </label>
+      <input type="text" name="exercises" [(ngModel)]="newWorkout.exercises"/><br />
+      <label for="setsPerWorkout">Sets: </label>
+      <input type="number" name="setsPerWorkout" [(ngModel)]="newWorkout.setsPerWorkout"/><br />
+      <label for="repsPerWorkout">Reps: </label>
+      <input type="number" name="repsPerWorkout" [(ngModel)]="newWorkout.repsPerWorkout"/><br />
+
+      <input type="submit" (click)="addWorkout(newWorkout)">
+    </form>
+
+  </div>
+  <div *ngIf="showUpdateWorkoutForm">
+    <form>
+      <label for="workoutType">Workout Type: </label>
+      <input type="text" name="workoutType" [(ngModel)]="editWorkout.workoutType"><br />
+      <label for="workoutTimeStart">Time Started: </label>
+      <input
+        type="datetime-local"
+        name="workoutTimeStart" [(ngModel)]="editWorkout.workoutStart"
+      /><br />
+      <label for="workoutTimeEnd">Time Ended: </label>
+      <input
+        type="datetime-local"
+        name="workoutTimeEnd" [(ngModel)]="editWorkout.workoutEnd"
+      /><br />
+      <label for="milesRan">Miles Ran: </label>
+      <input type="number" name="milesRan" [(ngModel)]="editWorkout.milesRan"/><br />
+      <label for="exercises">Exercises: </label>
+      <input type="text" name="exercises" [(ngModel)]="editWorkout.exercises"/><br />
+      <label for="setsPerWorkout">Sets: </label>
+      <input type="number" name="setsPerWorkout" [(ngModel)]="editWorkout.setsPerWorkout"/><br />
+      <label for="repsPerWorkout">Reps: </label>
+      <input type="number" name="repsPerWorkout" [(ngModel)]="editWorkout.repsPerWorkout"/><br />
+
+      <input type="submit" (click)="updateWorkout(editWorkout)">
+    </form>
+
+  </div>
+
+</div>
+
+<!-- <div *ngIf="selected && !editTodo">
+  <p>{{ selected.id }}</p>
+  <p>{{ selected.task }}</p>
+  <p>{{ selected.completed }}</p>
+  <p>{{ selected.description }}</p>
+  <button (click)="setEditTodo()">Edit</button>
+  <button (click)="displayTable()">Back</button>
+</div>
+
+<div *ngIf="editTodo">
+  <input type="text" name="task" [(ngModel)]="editTodo.task">
+  <input type="text" name="description" [(ngModel)]="editTodo.description">
+  <input type="checkbox" name="completed" [(ngModel)]="editTodo.completed">
+  <button (click)="updateTodo(editTodo)">Save</button>
+  <button (click)="editTodo = null;">Cancel</button>
+</div> -->
